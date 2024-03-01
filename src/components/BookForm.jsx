@@ -1,56 +1,26 @@
 import React from 'react';
-import { useState,useEffect } from 'react';
-export default function  BookForm(props) {
+import { useState,useEffect ,memo} from 'react';
+import {onBookSubmitHandler} from './jsFunctions/CrudFunctions'
+export default  memo( function BookForm(props) {
 const {book,setBooks,setNotification,editIndex,setEditIndex,title,setTitle,author,setAuthor,isbn,setIsbn} =props;
     const [titleError,setTitleError]= useState(false);
     const [authorError,setAuthorError] = useState(false);
     const [isbnError,setIsbnError] = useState(false);
-    const onBookSubmitHandler = (event)=>{
-        event.preventDefault();
-        
-        if(!title){   
-          setTitleError(true); 
-          return
-        } 
-        if(!author) {
-          setAuthorError(true);
-            return
-          };      
-        if(!isbn) {
-          
-          setIsbnError(true)
-        return;
-        };
-        
-        if(editIndex == null){
-        setBooks([...book,{title,author,isbn}])
-        const storeBooks= [...book,{title,author,isbn}];
-        setNotification("book is added successfully!");
-        }else{
-        const updateBook = [...book];
-        const findBook = updateBook[editIndex];
-        findBook.title = title;
-        findBook.author = author;
-        findBook.isbn = isbn;
-        setBooks(updateBook);
-        setEditIndex(null);
-        setNotification("book updated successfully!");
-        
-        
-        }
-        
-        setTitle("");
-        setAuthor("");
-        setIsbn("");
-        }
 
-        
+    const valideState = {
+       setTitleError,
+       setAuthorError,
+       setIsbnError 
+    }
+    
+
+                                                       
     
     return <>
 
 <h1 className="text-5xl ">Add Book</h1>
  <div className="container mt-6">
-  <form onSubmit={onBookSubmitHandler}>
+  <form onSubmit={(event)=>onBookSubmitHandler(event,props,valideState)}>
  <div>
 <label htmlFor="title" className="block  text-md font-medium leading-5 text-gray-900">Title </label>
 <div className="mt-2 rounded-sm ">
@@ -85,4 +55,4 @@ const {book,setBooks,setNotification,editIndex,setEditIndex,title,setTitle,autho
 
  </div>
     </>
-}
+})

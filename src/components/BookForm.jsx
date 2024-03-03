@@ -39,7 +39,7 @@ const {book,setBooks,setNotification,editIndex,setEditIndex,title,setTitle,autho
  <div>
 <label htmlFor="isbn" className="block  text-md font-medium leading-5 text-gray-900 mt-5" >ISBN# </label>
 <div className="mt-2 rounded-sm ">
-  <input type="text" name="isbn" value={isbn} className={`block w-full  rounded-md  ${isbnError ?'ring-red-500': 'ring-slate-300'} ring-inset  ring-1   py-2  px-2.5 focus:ring-1  focus:ring-white `} onChange={(event)=>{setIsbn(event.target.value);setIsbnError(false)}}/>
+  <input type="number" name="isbn" value={isbn} className={`block w-full  rounded-md  ${isbnError ?'ring-red-500': 'ring-slate-300'} ring-inset  ring-1   py-2  px-2.5 focus:ring-1  focus:ring-white `} onChange={(event)=>{setIsbn(event.target.value);setIsbnError(false)}}/>
   <span className={`${isbnError ? 'block' :'hidden' }   text-red-500 `}>Please fill out this empty feild</span>
 </div>
 </div>

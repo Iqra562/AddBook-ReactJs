@@ -51,8 +51,8 @@ const DeleteFunction = ()=>{
       <div className="container w-[60%] mt-1 relative">
 
     {/* notification box start */}
-    {notification && <div  style={{ transition: 'opacity 0.5s ease-in-out' }}
- className='bg-white w-[25%] mx-auto   absolute top-2 py-2 px-1 rounded-md shadow-lg  left-0 right-0 flex items-center justify-center space-x-2'>
+    { notification && <div  style={{ transition: 'opacity 0.5s ease-in-out' }}
+ className='bg-white lg:w-[25%] md:w-[55%] mx-auto   absolute top-2 py-2 px-1 rounded-md shadow-lg  lg:left-0 right-0 flex items-center justify-center space-x-2'>
     <div className="text-white text-sm rounded-full bg-gray-500 inline">
   <TiTick />
 </div>
@@ -64,7 +64,7 @@ const DeleteFunction = ()=>{
    
     {/* delete notification modal start */}
   {deleteIndex !== null &&   <div  style={{ transition: 'opacity 0.5s ease-in-out' }}
- className='bg-white w-[32%] mx-auto   absolute top-2 py-2 px-2 rounded-md shadow-lg  left-0 right-0   space-x-2'>
+ className='bg-white  lg:w-[32%] md:w-[50%] mx-auto   absolute top-2 py-2 px-2 rounded-md shadow-lg  lg:left-0 right-0   space-x-2'>
     
 <div className='mt-1'>Are you sure you want to delete data ?</div>
 <div className='flex justify-end space-x-3 mt-2'>
